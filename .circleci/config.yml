@@ -12,6 +12,6 @@ jobs:
           if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
             echo "Lint some code, and build"
           else
-            yum install openssh-server openssh-clients --nogpgcheck
+            yum install openssh-server openssh-clients --nogpgcheck -y
             ssh 'hostname' 98.1.44.94
           fi    
