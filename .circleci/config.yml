@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: wdoogz/ansible:latest
+      - image: centos:latest
     steps:
       - checkout
       - add_ssh_keys:
@@ -10,13 +10,8 @@ jobs:
             - "03:09:d1:98:4e:96:47:0c:36:55:d1:63:be:36:cc:9d"
       - run: |
           if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
-            for i in $(ls ./playbooks/); do
-              ansible-lint ./playbooks/$i
-            done
+            echo "Lint some code, and build"
           else
+            yum install openssh-server openssh-clients --nogpgcheck
             ssh 'hostname' 98.1.44.94
-            cp ./hosts /etc/ansible/hosts
-            for i in $(ls ./playbooks/); do
-              ansible-playbook ./playbooks/$i -vvvv
-            done
           fi    

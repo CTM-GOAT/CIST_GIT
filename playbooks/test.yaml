@@ -1,6 +1,0 @@
-- hosts: vm
-  tasks:
-    - name: Ping that
-      cron:
-        name: "check dir"
-        job: "/bin/ls"
