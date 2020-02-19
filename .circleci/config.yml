@@ -5,6 +5,9 @@ jobs:
       - image: wdoogz/ansible:latest
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "f3:fe:61:bb:61:1e:b9:ac:89:94:68:7f:16:bb:e4:b5"
       - run: |
           if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
             for i in $(ls ./playbooks/); do
