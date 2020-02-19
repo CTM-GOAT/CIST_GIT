@@ -1,5 +1,4 @@
 FROM nginx:latest
-Maintainer Wesley Dugan
+MAINTAINER Wesley Dugan wed30@pitt.edu
 ADD ./some_sick_program /tmp
-
 RUN /tmp/helloworld.sh
