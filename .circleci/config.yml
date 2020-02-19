@@ -1,0 +1,17 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: wdoogz/ansible:latest
+    steps:
+      - checkout
+      - run: |
+          if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
+            for i in $(ls ./playbooks/); do
+              ansible-lint ./playbooks/$i
+            done
+          else
+            cp ./hosts /etc/ansible/hosts
+            for i in $(ls ./playbooks/); do
+              ansible-playbook ./playbooks/$i
+          fi    
