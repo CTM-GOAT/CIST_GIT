@@ -7,7 +7,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "f3:fe:61:bb:61:1e:b9:ac:89:94:68:7f:16:bb:e4:b5"
+            - "07:1f:fb:d5:67:be:5a:bb:69:6d:b0:be:ab:15:5a:2d"
       - run: |
           if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
             for i in $(ls ./playbooks/); do
