@@ -11,7 +11,8 @@ jobs:
       - run: |
           if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
             echo "Lint some code, and build"
+            for i in $(ls ./some_sick_program/); do
+            pylint ./some_sick_program/$i
           else
-            yum install openssh-server openssh-clients --nogpgcheck -y
-            ssh -o StrictHostKeyChecking=no wdoogz@98.1.44.94 'hostname'
+            echo "Deploy some code!"
           fi    
