@@ -13,5 +13,5 @@ jobs:
             echo "Lint some code, and build"
           else
             yum install openssh-server openssh-clients --nogpgcheck -y
-            ssh 'hostname' 98.1.44.94
+            ssh  98.1.44.94 'hostname'
           fi    
