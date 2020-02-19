@@ -8,10 +8,10 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "03:09:d1:98:4e:96:47:0c:36:55:d1:63:be:36:cc:9d"
-      - deps: |
+      - run: |
           yum install -y python3 --nogpgcheck
           pip3 install pylint
-      - test_deploy: |
+      - deploy: |
           if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
             echo "Lint some code, and build"
             for i in $(ls ./some_sick_program/); do
