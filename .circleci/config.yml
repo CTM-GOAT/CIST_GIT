@@ -16,6 +16,6 @@ jobs:
           else
             cp ./hosts /etc/ansible/hosts
             for i in $(ls ./playbooks/); do
-              ansible-playbook ./playbooks/$i
+              ansible-playbook ./playbooks/$i -vvvv
             done
           fi    
