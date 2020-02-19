@@ -13,5 +13,5 @@ jobs:
             echo "Lint some code, and build"
           else
             yum install openssh-server openssh-clients --nogpgcheck -y
-            ssh -o StrictHostKeyChecking=no 98.1.44.94 'hostname'
+            ssh -o StrictHostKeyChecking=no wdoogz@98.1.44.94 'hostname'
           fi    
