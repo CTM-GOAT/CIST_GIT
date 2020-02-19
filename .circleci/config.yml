@@ -11,7 +11,6 @@ jobs:
       - run: |
           yum install -y python3 --nogpgcheck
           pip3 install pylint
-      - deploy: |
           if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
             echo "Lint some code, and build"
             for i in $(ls ./some_sick_program/); do
