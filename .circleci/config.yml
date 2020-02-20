@@ -13,7 +13,7 @@ jobs:
           pip3 install pylint
           if [[ -n ${CIRCLE_PULL_REQUEST} ]]; then
             echo "Lint some code, and build"
-            for i in $(ls ./some_sick_program/); do
+            for i in $(ls ./some_sick_program/ | grep ".py"); do
               pylint ./some_sick_program/$i
             done
           else
